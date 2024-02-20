@@ -104,6 +104,7 @@ snames <- function(
     r   = "00-rscript.r",
     sh  = "01-bash.sh",
     out = "02-output-%A-%a.out",
+    err = "02-error-%A-%a.err",
     rds = if (missing(array_id))
       "03-answer-%03i.rds"
     else sprintf("03-answer-%03i.rds", array_id),

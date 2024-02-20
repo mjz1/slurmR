@@ -26,6 +26,7 @@ new_bash <- function(
   filename,
   job_name = NULL,
   output   = NULL,
+  error = NULL,
   njobs    = NULL
   ) {
 
@@ -77,6 +78,7 @@ new_bash <- function(
     list(
       `job-name` = job_name,
       output     = output,
+      error = error,
       array      = sprintf("1-%i", njobs)
     )
   )
