@@ -69,10 +69,10 @@ tcq <- function(...) {
 #' Creates an R script
 #' @noRd
 #' @param pkgs A named list of R packages to load.
-load_packages <- function(pkgs, tmp_path, job_name) {
+load_packages <- function(pkgs, tmp_path, job_name, libPaths) {
 
-  # For testing purposes, the instalation of the package is somewhere else
-  sprintf("library(%s, lib.loc = \"%s\")", names(pkgs), unlist(pkgs))
+  # For testing purposes, the installation of the package is somewhere else
+  sprintf("library(%s, lib.loc = %s)", names(pkgs), paste0("c('", paste(libPaths, collapse = "', '"), "')"))
 
 }
 
@@ -232,7 +232,7 @@ new_rscript <- function(
     )
 
   # We only load packages if loaded...
-  pkgs <- load_packages(pkgs, tmp_path = tmp_path, job_name = job_name)
+  pkgs <- load_packages(pkgs, tmp_path = tmp_path, job_name = job_name, libPaths = libPaths)
   if (length(pkgs)) {
     env$append("message(\"[slurmR info] Loading packages ... \")", wrap = FALSE)
     env$append(pkgs)
