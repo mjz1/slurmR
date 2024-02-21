@@ -36,7 +36,8 @@ tcq <- function(...) {
       "[slurmR info] An error has ocurred while evualting the expression:\n[slurmR info]   ",
       paste(deparse(match.call()[[2]]), collapse = "\n[slurmR info]   "), "\n[slurmR info] in ",
       "ARRAY_ID # ", ARRAY_ID.,
-      "\n[slurmR info] The error will be saved and quit R.\n"
+      "\n[slurmR info] The error will be saved and quit R:",
+      "\n[ERROR]:\n\t", ans
     )
     message(msg, immediate. = TRUE, call. = FALSE)
 

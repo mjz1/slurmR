@@ -186,7 +186,9 @@ Slurm_lapply <- function(
     )
 
   bash$add_SBATCH(sbatch_opt)
+  bash$append("set -xeuo pipefail")
   bash$append(c(opts_slurmR$get_preamble(), preamble))
+
   bash$Rscript(
     file  = snames("r", job_name = job_name, tmp_path = tmp_path),
     flags = rscript_opt
