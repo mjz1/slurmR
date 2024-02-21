@@ -182,7 +182,6 @@ Slurm_lapply <- function(
     njobs    = njobs,
     job_name = job_name,
     output   = snames("out", job_name = job_name, tmp_path = tmp_path),
-    error   = snames("err", job_name = job_name, tmp_path = tmp_path),
     filename = snames("sh", job_name = job_name, tmp_path = tmp_path)
     )
 
